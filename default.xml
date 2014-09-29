@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+
+  <remote name="origin"
+           fetch=".." />
+
+  <default revision="refs/heads/coron-mtk-4.2"
+           remote="origin"
+           sync-j="4" />
+
+  <project path="manifest" name="baidurom/manifest" />
+  <project path="build" name="baidurom/build" revision="coron-4.2"/>
+  <project path="tools" name="baidurom/tools" revision="coron-4.2"/>
+  <project path="baidu/release" name="baidurom/baidu-release"/>
+  <project path="baidu/frameworks/overlay" name="baidurom/baidu-frameworks-overlay" />
+  <project path="devices/base" name="baidurom/devices-base" />
+</manifest>
