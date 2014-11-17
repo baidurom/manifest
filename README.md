@@ -15,12 +15,17 @@
 ===
 开源项目的分支命名基于coron, 对于单卡机型, 后缀为Android 版本； 对于双卡机型, 后缀为双卡平台与Andorid版本的结合。
 
-已有单卡分支有coron-4.0, coron-4.1, coron-4.2, coron-4.3, 已有的双卡分支有coron-mtk-4.0, coron-mtk-4.2。 分支对应到可以制作的ROM版本, 譬如, 厂商原来的系统是Android 4.3的单卡版本, 那么, 就推荐使用coron-4.3分支来移植百度云OS 。
+已有单卡分支有coron-4.0, coron-4.1, coron-4.2, coron-4.3, coron-4.4；
+
+已有的双卡分支有coron-mtk-4.0, coron-mtk-4.2。 
+
+分支对应到可以制作的ROM版本, 譬如, 厂商原来的系统是Android 4.4的单卡版本, 那么就推荐使用coron-4.4分支来移植百度云OS 。
 
 开源项目的目录结构如下所示: 
 
     coron
-     +-- manifest                 开源项目的Repo 管理清单文件，以及教程和文档
+     +-- manifest                 开源项目的Repo 管理清单文件
+     +-- tutorials                开发文档、教程
      +-- build                    编译脚本，包括基于Makfile 编译环境的构建脚本
      +-- tools                    工具，包括反编译/编译，解包/打包的脚本，以及其他一些实用工具
      +-- baidu
@@ -36,15 +41,15 @@
 3. 代码下载
 ====
 
-通过repo init命令的-b参数, 选择需要下载的分支(譬如coron-4.3)。
+通过repo init命令的-b参数, 选择需要下载的分支(譬如coron-4.4)。
 通过repo sync命令同步远程代码: 
 
-    repo init -u https://github.com/baidurom/manifest.git -b coron-4.3
+    repo init -u https://github.com/baidurom/manifest.git -b coron-4.4
     repo sync
 
 如果连接一直失败或下载代码过慢，则使用以下命令:
 
-    repo init --repo-url git://github.com/baidurom/repo.git -u https://github.com/baidurom/manifest.git -b coron-4.3 --no-repo-verify
+    repo init --repo-url git://github.com/baidurom/repo.git -u https://github.com/baidurom/manifest.git -b coron-4.4 --no-repo-verify
     repo sync --no-clone-bundle -c -j4
 
 
@@ -70,7 +75,7 @@
     1) config: 从手机或已有的原厂底包中拉取boot.img和recovery.img,生成Makefile;
     2) newproject: 从手机或已有的原厂底包中拉取原厂的所有文件,构建一个新机型工程;
     3) patchall: 自动 Patch 需要植入的代码。既插桩;
-    4) autofix: 自动补充缺失的接口,并自动解冲突;
+    4) autofix: 自动补充Phone， SystemUI等模块中缺失的接口;
     5) fullota: 编译机型,生成最终的卡刷包或可以刷入手机的 image。
 
 
@@ -113,9 +118,9 @@
 
 对于具备开源项目管理权限的开发者, 可以直接通过git push命令, 提交代码改动: 
 
-    git push –u origin coron-4.3
+    git push –u origin coron-4.4
 
-在修改后的Git库使用上述命令。origin是远程仓库的别名, 是开发者自定义的, 也可以为其他别名； coron-4.2是改动的Git库所在的分支。
+在修改后的Git库使用上述命令。origin是远程仓库的别名, 是开发者自定义的, 也可以为其他别名； coron-4.4是改动的Git库所在的分支。
 
 <b>2) 通过Code Review方式提交代码</b>
 
